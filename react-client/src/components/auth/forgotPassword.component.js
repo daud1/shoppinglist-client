@@ -4,8 +4,8 @@ var axios = require('axios');
 class ForgotPassword extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        var url = 'http://localhost:5000/auth/forgot-password';
-        var form = new FormData(event.target);
+        let url = 'http://localhost:5000/auth/forgot-password';
+        let form = new FormData(event.target);
 
         axios.post(url, form)
         .then(function(response){

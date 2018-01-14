@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ItemDelButton from './delButton.component';
+import DelButton from './delButton.component';
+import EditBtnMdl from './editBtnMdl.component';
 
 class Lister extends Component{
 
@@ -13,9 +14,13 @@ class Lister extends Component{
                             return (
                                 <div>
                                     <li>{listValue.item_name}</li>
-                                    <ItemDelButton 
-                                         item_id={listValue.item_id} 
+                                    <DelButton 
                                          list_id={listValue.list_id} 
+                                         item_id={listValue.item_id} 
+                                    />
+                                    <EditBtnMdl 
+                                         list_id={listValue.list_id}
+                                         item_id={listValue.item_id}
                                     />
                                 </div>
                             )

@@ -5,8 +5,9 @@ import {Route, Switch} from 'react-router-dom';
 //import components
 import LogIn from './components/auth/logIn.component';
 import SignUp from './components/auth/signUp.component';
-import forgotPassword from './components/auth/forgotPassword.component';
-import itemsViewComponent from './components/items/itemsView.component';
+import ForgotPassword from './components/auth/forgotPassword.component';
+import ItemsView from './components/items/itemsView.component';
+import ListView from './components/lists/listView.component';
 
 class App extends Component {
   render() {
@@ -14,11 +15,12 @@ class App extends Component {
       <div className="App">
         <Switch>
 
-          <Route exact path='/' component={LogIn} />
+          <Route exact path='/' component={SignUp} />
           <Route exact path='/login' component={LogIn} />
           <Route exact path='/register' component={SignUp} />
-          <Route exact path='/forgotpassword' component={forgotPassword} />
-          <Route exact path='/listitems' component={itemsViewComponent} />
+          <Route exact path='/forgotpassword' component={ForgotPassword} />
+          <Route exact path='/items' component={ItemsView} />
+          <Route exact path='/lists' component={ListView} />
           
         </Switch>
       </div>

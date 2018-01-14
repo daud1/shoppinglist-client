@@ -1,14 +1,19 @@
 import React, { Component } from  'react';
-var axios = require('axios');
+import axios from 'axios';
 
 class SignUp extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        var url = 'http://localhost:5000/auth/register';
-        var form = new FormData(event.target);
+        let url = 'http://localhost:5000/auth/register';
+        let form = new FormData(event.target);
+        
         axios.post(url, form)
-        .then(function(){console.log('User created')})
-        .catch(function(error){console.log(error)});
+        .then(function(response){
+            console.log(response);
+        })
+        .catch(function(error){
+            console.log(error)
+        });
     }
 
     render() {

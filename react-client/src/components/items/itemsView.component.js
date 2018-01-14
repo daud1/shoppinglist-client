@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Lister from '../generic/list.component';
+import LogOut from '../auth/logOut.component';
 import axios from 'axios';
 
-class ListView extends Component{
+class ItemsView extends Component{
     constructor() {
         super();
         this.state = {};
     }
 
     componentWillMount(){
-       var item_id = 5; 
-       var url = 'http://localhost:5000/shoppinglists/' + item_id;
+       let item_id = 5; 
+       let url = 'http://localhost:5000/shoppinglists/' + item_id;
        axios.get(url, {
            headers: {'Authorization': localStorage.getItem('token')}
         })
@@ -26,6 +27,7 @@ class ListView extends Component{
     render(){
         return (
             <div>
+                <LogOut />
                 <Lister list={this.state.listItems} />
             </div>
         )
@@ -33,4 +35,4 @@ class ListView extends Component{
 }
 
 
-export default ListView;
+export default ItemsView;

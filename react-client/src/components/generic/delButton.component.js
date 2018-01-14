@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class ItemDelButton extends Component {
+class DelButton extends Component {
     
     handleClick = (props) => {
         let url = 'http://localhost:5000/shoppinglists/';
@@ -32,4 +32,4 @@ class ItemDelButton extends Component {
     }
 }
 
-export default ItemDelButton;
+export default DelButton;
