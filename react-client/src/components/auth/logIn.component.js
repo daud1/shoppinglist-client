@@ -8,10 +8,11 @@ class LogIn extends Component {
         var form = new FormData(event.target)
 
         axios.post(url, form)
-        .then(function(response){
-            console.log(response);
+        .then(response => {
+            // console.log(response);
             localStorage.setItem('token', response.data.token)
-            console.log(response.data.token)
+            this.props.history.push("/lists");
+            // console.log(response.data.token)
         })
         .catch(function(error){
             console.log('ERR : ' + error)
