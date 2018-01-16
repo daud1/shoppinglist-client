@@ -5,8 +5,8 @@ class ResetPassword extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        var form = new FormData(event.target);
-        var url = 'http://localhost:5000/auth/reset-password'
+        let form = new FormData(event.target);
+        let url = 'http://localhost:5000/auth/reset-password'
 
         axios.post(url, form, {
             headers:    {'Authorization': localStorage.getItem('token')}
