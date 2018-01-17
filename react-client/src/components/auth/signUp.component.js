@@ -8,10 +8,11 @@ class SignUp extends Component {
         let form = new FormData(event.target);
         
         axios.post(url, form)
-        .then(function(response){
+        .then(response => {
             console.log(response);
+            this.props.history.push('/login');
         })
-        .catch(function(error){
+        .catch(error => {
             console.log(error)
         });
     }
@@ -25,6 +26,7 @@ class SignUp extends Component {
                     <input type='password' placeholder='Re-enter your password' name='confirm'/>
                     <button type='submit'>Sign Up</button>
                 </form>
+                <p> Already have an account? Log In instead</p>
             </div>
         );
     }
