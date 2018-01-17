@@ -5,6 +5,7 @@ class EditBtnMdl extends Component {
    
     handleSubmit = (event) => {
         event.preventDefault();
+        
         var url = 'http://localhost:5000/shoppinglists/';
         var form = new FormData(event.target);
 
@@ -19,6 +20,8 @@ class EditBtnMdl extends Component {
             })
             .then(response => {
                 console.log(response);
+                this.myFormRef.reset();
+                this.props.callback();
             })
             .catch(error => {
                 console.log(error);
@@ -29,8 +32,8 @@ class EditBtnMdl extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type='text' placeholder='Enter new item name' name='item_name' />
+                <form onSubmit={this.handleSubmit} ref={(fm) => this.myFormRef = fm}>
+                    <input type='text' placeholder='Enter new name' name='name' />
                     <button type='submit'>Edit</button>
                 </form>
             </div>

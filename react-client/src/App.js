@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path='/login' component={LogIn} />
           <Route exact path='/register' component={SignUp} />
           <Route exact path='/forgotpassword' component={ForgotPassword} />
-          <Route exact path='/items' component={ItemsView} />
+          <Route exact path='/items/:list_id' component={ItemsView} />
           <Route exact path='/lists' component={ListView} />
           
         </Switch>
