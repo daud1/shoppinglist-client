@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Lister from '../generic/list.component';
-import LogOut from '../auth/logOut.component';
+import LogOutwithRouter from '../auth/logOut.component';
 import CreateItem from './createItem.component';
 import axios from 'axios';
 import baseURL from '../generic/base';
@@ -54,7 +54,7 @@ class ItemsView extends Component{
         return (
             <div>
                 <Search setValue={this.setListItems} />
-                <LogOut />
+                <LogOutwithRouter />
                 <CreateItem list_id={this.props.match.params.list_id} callback={this.fetchItems}/>
                 <Lister list={this.state.listItems} callback={this.fetchItems}/>
                 { pagss }
