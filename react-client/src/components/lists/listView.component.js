@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from '../generic/base'
 import Lister from '../generic/list.component';
-import LogOut from '../auth/logOut.component';
+import LogOutwithRouter from '../auth/logOut.component';
 import CreateList from './createList.component';
 import Search from '../generic/search.component';
 

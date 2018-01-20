@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Lister from '../generic/list.component';
-import LogOut from '../auth/logOut.component';
+import LogOutwithRouter from '../auth/logOut.component';
 import CreateItem from './createItem.component';
 import axios from 'axios';
 import baseURL from '../generic/base';
