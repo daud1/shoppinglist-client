@@ -54,7 +54,7 @@ class ItemsView extends Component{
         return (
             <div>
                 <Search setValue={this.setListItems} />
-                <LogOut />
+                <LogOutwithRouter />
                 <CreateItem list_id={this.props.match.params.list_id} callback={this.fetchItems}/>
                 <Lister list={this.state.listItems} callback={this.fetchItems}/>
                 { pagss }
