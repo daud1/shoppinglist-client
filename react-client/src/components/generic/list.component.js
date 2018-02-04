@@ -16,7 +16,8 @@ class Lister extends Component{
                             if (listValue.list_id && listValue.item_id) {
                                 return (
                                     <div>
-                                        <li>
+                                        <li key={listValue.item_id}>
+                                        {console.log(listValue.item_id)}
                                             {listValue.name} 
                                             <DelButton 
                                                 list_id={listValue.list_id}
@@ -33,7 +34,8 @@ class Lister extends Component{
                             } else if (listValue.list_id && !listValue.item_id) {
                                 return (
                                     <div>
-                                        <li>
+                                        <li key={listValue.list_id}>
+                                        {console.log(listValue.list_id)}
                                             <Link to={`/items/${listValue.list_id}`}>{listValue.name} </Link>
                                             <DelButton 
                                                 list_id={listValue.list_id}
@@ -46,7 +48,7 @@ class Lister extends Component{
                                 )
                             }
                         })
-                        : "Nothing Found!"
+                        : "Oops! Nothing Found!"
 
                     }
                 </ul>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import baseURL from  '../generic/base';
 import axios from 'axios';
+import baseURL from './base';
 
 class DelButton extends Component {
     
@@ -11,10 +12,10 @@ class DelButton extends Component {
 
             console.log(!this.props.item_id)
             if (this.props.item_id && this.props.list_id){
-                url = url + this.props.list_id + '/items/' + this.props.item_id;
+                url = baseURL + this.props.list_id + '/items/' + this.props.item_id;
                 
             } else if (this.props.list_id && !this.props.item_id) {
-                url = url + this.props.list_id;
+                url = baseURL + this.props.list_id;
             }
             // make a call to the api to delete the selected item/list
             axios.delete(url, {
