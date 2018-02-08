@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import baseURL from '../generic/base'
 import axios from 'axios';
 
 class LogOut extends Component {
@@ -6,9 +7,9 @@ class LogOut extends Component {
     handleClick = (event) => {
         event.preventDefault();
 
-        let url = 'http://localhost:5000/auth/logout'
+        let url = baseURL + 'auth/logout'
         axios.post(url)
-        .then(response =>{
+        .then(response => {
             console.log(response);
         })
         .catch(error => {

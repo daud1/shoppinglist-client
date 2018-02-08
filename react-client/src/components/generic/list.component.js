@@ -45,21 +45,6 @@ class Lister extends Component{
                                     </div>
                                 )
                             }
-                            // return (
-                            //     <div>
-                            //             <li>
-                            //                 <Link to={`/items/${listValue.list_id}`}>{listValue.name} </Link>
-                            //                 <DelButton 
-                            //                     list_id={listValue.list_id}
-                            //                     item_id={listValue.item_id}
-                            //                     callback={this.props.callback}/> 
-                            //                 <EditBtnMdl 
-                            //                     list_id={listValue.list_id}
-                            //                     item_id={listValue.item_id}
-                            //                     callback={this.props.callback}/>
-                            //             </li>
-                            //     </div>
-                            // )
                         })
                         : "Nothing Found!"
 

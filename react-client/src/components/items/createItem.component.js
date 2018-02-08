@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import baseURL from '../generic/base';
 import axios from 'axios';
 
 class CreateItem extends Component {
@@ -9,10 +10,8 @@ class CreateItem extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        let baseurl = 'http://localhost:5000/shoppinglists/';        
         let form = new FormData(event.target);
-        let url = baseurl + this.props.list_id + '/items/';
+        let url = baseURL + 'shoppinglists/' + this.props.list_id + '/items/';
 
         axios.post(url, form, {
             headers: {'Authorization': localStorage.getItem('token')}

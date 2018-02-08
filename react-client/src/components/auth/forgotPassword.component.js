@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-var axios = require('axios');
-
+import baseURL from '../generic/base';
+import axios from 'axios';
 class ForgotPassword extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        let url = 'http://localhost:5000/auth/forgot-password';
+        let url = baseURL + 'auth/forgot-password';
         let form = new FormData(event.target);
 
         axios.post(url, form)
-        .then(function(response){
+        .then(response => {
             console.log(response);
         })
-        .catch(function(error){
+        .catch(error => {
             console.log('ERR: ' + error );
         });
     }

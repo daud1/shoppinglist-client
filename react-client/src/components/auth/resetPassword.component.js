@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-var axios = require('axios');
-
+import axios from 'axios';
+import baseURL from '../generic/base';
 class ResetPassword extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
         let form = new FormData(event.target);
-        let url = 'http://localhost:5000/auth/reset-password'
+        let url = baseURL + 'auth/reset-password'
 
         axios.post(url, form, {
             headers:    {'Authorization': localStorage.getItem('token')}
         })
-        .then(function(response){ console.log(response); })
-        .catch(function(error){ console.log(error); });
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
     
     render() {

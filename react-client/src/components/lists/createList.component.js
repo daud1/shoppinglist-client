@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import baseURL from '../generic/base';
 
 class CreateList extends Component {
     constructor() {
@@ -11,7 +12,7 @@ class CreateList extends Component {
         event.preventDefault();
 
         let form = new FormData(event.target);
-        let url = 'http://localhost:5000/shoppinglists/'
+        let url = baseURL +  'shoppinglists/';
 
         axios.post(url, form, {
             headers: {'Authorization': localStorage.getItem('token')}
