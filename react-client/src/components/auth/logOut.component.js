@@ -8,8 +8,10 @@ class LogOut extends Component {
         event.preventDefault();
 
         let url = baseURL + 'auth/logout'
-        axios.post(url)
-        .then(response => {
+        axios.post(url, {}, {
+            headers: {'Authorization': localStorage.getItem('token')}
+        })
+        .then(response =>{
             console.log(response);
         })
         .catch(error => {
