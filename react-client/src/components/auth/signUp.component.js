@@ -1,10 +1,11 @@
 import React, { Component } from  'react';
+import baseURL from '../generic/base';
 import axios from 'axios';
 
 class SignUp extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        let url = 'http://localhost:5000/auth/register';
+        let url = baseURL + 'auth/register';
         let form = new FormData(event.target);
         
         axios.post(url, form)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import baseURL from '../generic/base'
 import Lister from '../generic/list.component';
 import LogOut from '../auth/logOut.component';
 import CreateList from './createList.component';
@@ -11,7 +12,7 @@ class ListView extends Component {
     }
     
     fetchList = () => {
-        let url = 'http://localhost:5000/shoppinglists/';
+        let url = baseURL + 'shoppinglists/';
         axios.get(url, {
             headers: {'Authorization': localStorage.getItem('token')}
          })

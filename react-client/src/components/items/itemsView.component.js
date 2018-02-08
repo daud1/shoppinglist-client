@@ -3,6 +3,7 @@ import Lister from '../generic/list.component';
 import LogOut from '../auth/logOut.component';
 import CreateItem from './createItem.component';
 import axios from 'axios';
+import baseURL from '../generic/base';
 
 class ItemsView extends Component{
     constructor() {
@@ -11,15 +12,15 @@ class ItemsView extends Component{
     }
 
     fetchItems = () => {
-        let url = 'http://localhost:5000/shoppinglists/' + this.props.match.params.list_id;
+        let url = baseURL + 'shoppinglists/' + this.props.match.params.list_id;
         axios.get(url, {
             headers: {'Authorization': localStorage.getItem('token')}
             })
-        .then((response) => {
+        .then(response => {
             console.log(response); 
             this.setState({listItems: response.data});
         })
-        .catch((error) => {
+        .catch(error => {
             console.log('ERR: ' + error);
         });
     }

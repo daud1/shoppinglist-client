@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-var axios = require('axios');
-
+import baseURL from '../generic/base';
+import axios from 'axios';
 class LogIn extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        var url = 'http://localhost:5000/auth/login'
-        var form = new FormData(event.target)
+        let url = baseURL + 'auth/login';
+        let form = new FormData(event.target)
 
         axios.post(url, form)
         .then(response => {
-            // console.log(response);
             localStorage.setItem('token', response.data.token)
             this.props.history.push("/lists");
-            // console.log(response.data.token)
         })
-        .catch(function(error){
+        .catch(error => {
             console.log('ERR : ' + error)
         });
     }

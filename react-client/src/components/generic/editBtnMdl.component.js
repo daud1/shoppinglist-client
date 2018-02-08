@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import baseURL from '../generic/base';
 import axios from 'axios';
 
 class EditBtnMdl extends Component {
@@ -6,8 +7,8 @@ class EditBtnMdl extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         
-        var url = 'http://localhost:5000/shoppinglists/';
-        var form = new FormData(event.target);
+        let url = baseURL + 'shoppinglists/';
+        let form = new FormData(event.target);
 
         if(this.props) {
             if (this.props.item_id && this.props.list_id){
