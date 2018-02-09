@@ -9,6 +9,7 @@ class EditBtnMdl extends Component {
         
         let url = baseURL + 'shoppinglists/';
         let form = new FormData(event.target);
+        console.log(form);
 
         if(this.props) {
             if (this.props.item_id && this.props.list_id){

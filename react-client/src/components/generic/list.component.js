@@ -11,11 +11,11 @@ class Lister extends Component{
                 <ul>
                     {
                         (this.props.list) 
-                        ? this.props.list.map(listValue => {
+                        ? this.props.list.map((listValue, index) => {
                             //formatting depending on whether the listValue holds an Item or List object
                             if (listValue.list_id && listValue.item_id) {
                                 return (
-                                    <div>
+                                    <div key={index}>
                                         <li>
                                             {listValue.name} 
                                             <DelButton 
@@ -32,7 +32,7 @@ class Lister extends Component{
                             //include link to the itemsView if the listValue object holds a List object
                             } else if (listValue.list_id && !listValue.item_id) {
                                 return (
-                                    <div>
+                                    <div key={index}>
                                         <li>
                                             <Link to={`/items/${listValue.list_id}`}>{listValue.name} </Link>
                                             <DelButton 
