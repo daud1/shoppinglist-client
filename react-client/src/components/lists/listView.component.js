@@ -12,8 +12,8 @@ class ListView extends Component {
         this.state = {};
     }
     
-    fetchList = () => {
-        let url = baseURL + 'shoppinglists/';
+    fetchList = (page=1) => {
+        let url = baseURL + 'shoppinglists/?page=' + page;
         axios.get(url, {
             headers: {'Authorization': localStorage.getItem('token')}
          })
@@ -37,7 +37,21 @@ class ListView extends Component {
         this.setState({list:arr, numberOfPages:numberOfPages});
     }
 
+    getPage = (event) => {
+        event.preventDefault();
+        this.fetchList(event.target.getAttribute("data-page"))
+    }
+
     render() {
+
+        let pagss = []
+        for(let i=1; i <= this.state.numberOfPages; i++){
+            pagss.push(
+                <li>
+                    <a href="" data-page={i} onClick={this.getPage}>{i}</a>
+                </li>
+            )
+        }
         return (
             <div>
                 <Search setValue={this.setLists} />
@@ -45,11 +59,7 @@ class ListView extends Component {
                 <CreateList callback={this.fetchList}/>
                 <p> See all your lists here: </p>
                 <Lister list={this.state.list} callback={this.fetchList} />
-                <ReactPaginate 
-                    pageCount = {this.state.numberOfPages}
-                    pageRangeDisplayed = {5} 
-                    marginPagesDisplayed = {2}
-                />
+                { pagss }
             </div>
         )
     }

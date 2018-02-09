@@ -7,13 +7,13 @@ class Search extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault()
-        let url = baseURL  + '?q=' + this.state.q;
+        let url = baseURL  + 'shoppinglists/?q=' + this.state.q;
         axios.get(url, {
             headers: {'Authorization': localStorage.getItem('token')}
         })
         .then(response => {
             this.props.setValue(response.data.lists, response.data.number_of_pages);
-            console.log('Success' + response);
+            console.log(response.data);
         })
         .catch(error => {
             console.log('Error' + error);

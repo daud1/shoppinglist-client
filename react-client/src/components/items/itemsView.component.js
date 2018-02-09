@@ -5,15 +5,15 @@ import CreateItem from './createItem.component';
 import axios from 'axios';
 import baseURL from '../generic/base';
 import Search from '../generic/search.component';
-import ReactPaginate from 'react-paginate';
+
 class ItemsView extends Component{
     constructor() {
         super();
         this.state = {}
     }
 
-    fetchItems = () => {
-        let url = baseURL + 'shoppinglists/' + this.props.match.params.list_id;
+    fetchItems = (page=1) => {
+        let url = baseURL + 'shoppinglists/' + this.props.match.params.list_id + '?page=' + page;
         axios.get(url, {
             headers: {'Authorization': localStorage.getItem('token')}
             })
@@ -24,9 +24,10 @@ class ItemsView extends Component{
             });
         })
         .catch(error => {
-            console.log('ERR: ' + error);
+            console.log(error);
         });
     }
+
     componentWillMount(){
        this.fetchItems();
     }
@@ -35,22 +36,31 @@ class ItemsView extends Component{
         this.setState({listItems:arr, numberOfPages:numberOfPages});
     }
 
+    getPage = (event) => {
+        event.preventDefault();
+        this.fetchItems(event.target.getAttribute("data-page"))
+    }
+
     render(){
+
+        let pagss = []
+        for(let i=1; i <= this.state.numberOfPages; i++){
+            pagss.push(
+                <li>
+                    <a href='' data-page={i} onClick={this.getPage}>{i}</a>
+                </li>
+            )
+        }
         return (
             <div>
                 <Search setValue={this.setListItems} />
                 <LogOut />
                 <CreateItem list_id={this.props.match.params.list_id} callback={this.fetchItems}/>
                 <Lister list={this.state.listItems} callback={this.fetchItems}/>
-                <ReactPaginate 
-                    pageCount = {this.state.numberOfPages}
-                    pageRangeDisplayed = {5} 
-                    marginPagesDisplayed = {2}
-                />
+                { pagss }
             </div>
         )
     }
 }
-
 
 export default ItemsView;
