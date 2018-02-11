@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditButtonModal Component matches snapshot 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      name="name"
+      placeholder="Enter new name"
+      type="text"
+    />
+    <button
+      type="submit"
+    >
+      Edit
+    </button>
+  </form>
+</div>
+`;

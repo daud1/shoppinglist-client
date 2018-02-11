@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp Component matches snapshot 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      name="email"
+      placeholder="Enter your email address"
+      type="email"
+    />
+    <input
+      name="password"
+      placeholder="Enter a password of your choice"
+      type="password"
+    />
+    <input
+      name="confirm"
+      placeholder="Re-enter your password"
+      type="password"
+    />
+    <button
+      type="submit"
+    >
+      Sign Up
+    </button>
+  </form>
+  <p>
+     Already have an account? 
+    <Link
+      replace={false}
+      to="/login"
+    >
+      Log In
+    </Link>
+     instead
+  </p>
+</div>
+`;
