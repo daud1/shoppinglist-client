@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lister Component matches snapshot 1`] = `
+<div>
+  <ul>
+    Oops! Nothing Found!
+  </ul>
+</div>
+`;
