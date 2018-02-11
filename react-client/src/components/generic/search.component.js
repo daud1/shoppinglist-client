@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from './base';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Search extends Component {
 
@@ -29,8 +31,16 @@ class Search extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type='text' placeholder='Search' name='q' onChange={this.handleChange}/>
-                    <button type='submit'>Search</button>
+                    <TextField
+                        type='text'
+                        floatingLabelText='Search'
+                        name='q'
+                        onChange={this.handleChange}
+                    />
+                    <RaisedButton
+                        type='submit'
+                        label='Search'
+                    />
                 </form>
             </div>
         )
