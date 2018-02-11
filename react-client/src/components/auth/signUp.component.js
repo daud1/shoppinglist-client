@@ -1,8 +1,21 @@
 import React, { Component } from  'react';
 import baseURL from '../generic/base';
 import axios from 'axios';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
+import { Link } from 'react-router-dom';
+
+const style = {
+    marginLeft: 500,
+    marginRight: 500,
+    marginTop: 200,
+    padding: '1%',
+    
+}
 
 class SignUp extends Component {
+    
     handleSubmit = (event) => {
         event.preventDefault();
         let url = baseURL + 'auth/register';
@@ -21,13 +34,42 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type='email' placeholder='Enter your email address' name='email' />
-                    <input type='password' placeholder='Enter a password of your choice' name='password' />
-                    <input type='password' placeholder='Re-enter your password' name='confirm'/>
-                    <button type='submit'>Sign Up</button>
-                </form>
-                <p> Already have an account? Log In instead</p>
+                <Paper style={style} zDepth={3}>
+                    <form onSubmit={this.handleSubmit}>
+                    
+                        <div>
+                            <TextField
+                                name='email'
+                                type='email'
+                                floatingLabelText='Email'
+                            />
+                        </div>
+                        <div>
+                            <TextField
+                                name='password'
+                                type='password'
+                                floatingLabelText='Password'
+                            />
+                        </div>
+                        <div>
+                            <TextField
+                                name='confirm'
+                                type='password'
+                                floatingLabelText='Confirm Password'
+                            />
+                        </div>
+                        <div>
+                            <RaisedButton 
+                                type='submit'
+                                label='Sign Up'
+                                primary
+                            />
+                        </div>
+
+                    </form>
+                    <p> Already have an account? <Link to={'/login'}>Log In</Link> instead</p>
+                </Paper>
+                
             </div>
         );
     }

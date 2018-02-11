@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import baseURL from  '../generic/base';
 import axios from 'axios';
+import DeleteIcon from 'material-ui-icons/Delete'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
 
 class DelButton extends Component {
     
@@ -32,7 +34,10 @@ class DelButton extends Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>Delete</button>
+            <FloatingActionButton>
+                <DeleteIcon />
+                onClick={this.handleClick}
+            </FloatingActionButton>
         )
     }
 }

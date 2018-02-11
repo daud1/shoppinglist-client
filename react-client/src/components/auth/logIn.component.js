@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import baseURL from '../generic/base';
 import axios from 'axios';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+const style ={
+    marginLeft: 500,
+    marginRight: 500,
+    marginTop: 200,
+    padding: '1%',
+    height: 300,
+    textAlign: 'center'
+}
 class LogIn extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
@@ -11,6 +22,7 @@ class LogIn extends Component {
         .then(response => {
             localStorage.setItem('token', response.data.token)
             this.props.history.push("/lists");
+            
         })
         .catch(error => {
             console.log('ERR : ' + error)
@@ -20,11 +32,33 @@ class LogIn extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type='email' name = 'email' placeholder='Enter your email address'/>
-                    <input type='password' name = 'password' placeholder='Enter your password'/>
-                    <button type='submit'>Log In</button>
-                </form>
+                <Paper style={style} zDepth={3}>
+                    <form onSubmit={this.handleSubmit}>
+                        <div>
+                            <TextField
+                                type='email'
+                                name = 'email'
+                                floatingLabelText='Enter your email address'
+                            />
+                        </div>
+                        <div>
+                            <TextField
+                                type='password'
+                                name = 'password'
+                                floatingLabelText='Password' 
+                            />
+                        </div>
+                        <br />
+                        <br />
+                        <div>
+                            <RaisedButton
+                                type='submit'
+                                label='Log In'
+                                primary
+                            />
+                        </div>
+                    </form>
+                </Paper>
             </div>
         );
     }
