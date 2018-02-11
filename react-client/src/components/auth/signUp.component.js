@@ -22,7 +22,7 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className='SignUp'>
+            <div>
                 <form onSubmit={this.handleSubmit}>
                     <input type='email' placeholder='Enter your email address' name='email' />
                     <input type='password' placeholder='Enter a password of your choice' name='password' />
