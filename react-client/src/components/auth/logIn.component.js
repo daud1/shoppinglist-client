@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import baseURL from '../generic/base';
 import axios from 'axios';
+import { notify } from 'react-notify-toast';
+
 class LogIn extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
@@ -9,11 +11,12 @@ class LogIn extends Component {
 
         axios.post(url, form)
         .then(response => {
-            localStorage.setItem('token', response.data.token)
+            localStorage.setItem('token', response.data.token);
+            notify.show('Successfully Logged In!', 'success');
             this.props.history.push("/lists");
         })
         .catch(error => {
-            console.log('ERR : ' + error)
+            notify.show('Oops!','error');
         });
     }
 
