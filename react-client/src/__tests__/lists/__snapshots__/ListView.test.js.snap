@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListView Component matches snapshot 1`] = `
+<div>
+  <Search
+    setValue={[Function]}
+  />
+  <withRouter(LogOut) />
+  <CreateList
+    callback={[Function]}
+  />
+  <p>
+     See all your lists here: 
+  </p>
+  <Lister
+    callback={[Function]}
+  />
+</div>
+`;
