@@ -23,7 +23,6 @@ describe ('LogIn Component', () => {
             .simulate("change", { target: { value: 'user@mail.com' }  });
         wrapper.find('input[name="password"]')
             .simulate("change", { target: { value: 'password' }  });
-
         wrapper.find('form')
             .simulate('submit', { preventDefault() {} });
 
