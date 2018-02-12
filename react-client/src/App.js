@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import Notifications from 'react-notify-toast';
 
 //import components
 import LogIn from './components/auth/logIn.component';
@@ -12,16 +13,19 @@ import ListView from './components/lists/listView.component';
 class App extends Component {
   render() {
     return (
-          <div className="App">
-            <Switch>
-                <Route exact path='/' component={SignUp} />
-                <Route exact path='/login' component={LogIn} />
-                <Route exact path='/register' component={SignUp} />
-                <Route exact path='/forgotpassword' component={ForgotPassword} />
-                <Route exact path='/items/:list_id' component={ItemsView} />
-                <Route exact path='/lists' component={ListView} />
-            </Switch>
-          </div>
+      <div className="App">
+        <Notifications />
+        <Switch>
+
+          <Route exact path='/' component={SignUp} />
+          <Route exact path='/login' component={LogIn} />
+          <Route exact path='/register' component={SignUp} />
+          <Route exact path='/forgotpassword' component={ForgotPassword} />
+          <Route exact path='/items/:list_id' component={ItemsView} />
+          <Route exact path='/lists' component={ListView} />
+          
+        </Switch>
+      </div>
     );
   }
 }

@@ -12,7 +12,7 @@ class ListView extends Component {
         this.state = {};
     }
     
-    fetchList = (page=1) => {
+    fetchLists = (page=1) => {
         let url = baseURL + 'shoppinglists/?page=' + page;
         axios.get(url, {
             headers: {'Authorization': localStorage.getItem('token')}
@@ -25,12 +25,18 @@ class ListView extends Component {
             });
         })
         .catch((error) => {
+            if(error.response){
+                const {status, data} = error.response;
+                if(status === 404){
+                    this.setState({'list': false});
+                }
+            }
             console.log(error);
         });
     }
 
     componentWillMount(){
-        this.fetchList();
+        this.fetchLists();
     }
 
     setLists = (arr, numberOfPages) => {
@@ -39,15 +45,15 @@ class ListView extends Component {
 
     getPage = (event) => {
         event.preventDefault();
-        this.fetchList(event.target.getAttribute("data-page"))
+        this.fetchLists(event.target.getAttribute("data-page"))
     }
 
     render() {
 
-        let pagss = []
+        let pageNumbers = []
         for(let i=1; i <= this.state.numberOfPages; i++){
-            pagss.push(
-                <li>
+            pageNumbers.push(
+                <li key={i}>
                     <a href="" data-page={i} onClick={this.getPage}>{i}</a>
                 </li>
             )
@@ -58,8 +64,8 @@ class ListView extends Component {
                 <LogOutwithRouter />
                 <CreateList callback={this.fetchList}/>
                 <p> See all your lists here: </p>
-                <Lister list={this.state.list} callback={this.fetchList} />
-                { pagss }
+                <Lister list={this.state.list} callback={this.fetchLists} />
+                { pageNumbers }
             </div>
         )
     }
