@@ -22,10 +22,16 @@ class DelButton extends Component {
             axios.delete(url, {
                 headers: {'Authorization': localStorage.getItem('token')}
             }).then(response => {
-                // this.props.callback();
-                window.location.reload();
+                this.props.callback();
+                // window.location.reload();
             }).catch(error => {
                 console.log(error);
+                if(error.response){
+                    const { data, status} = error.response;
+                    if(status === 404){
+                        this.props.callback();
+                    }
+                }
             });
         } else {
             console.log('Something went wrong! Check your internet connection');
@@ -35,8 +41,10 @@ class DelButton extends Component {
     render() {
         return (
             <FloatingActionButton>
-                <DeleteIcon />
-                onClick={this.handleClick}
+                <DeleteIcon 
+                    onClick={this.handleClick}
+                />
+                
             </FloatingActionButton>
         )
     }
