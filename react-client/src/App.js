@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
+import Notifications from 'react-notify-toast';
 
 //import components
 import LogIn from './components/auth/logIn.component';
@@ -13,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Notifications />
         <Switch>
 
           <Route exact path='/' component={SignUp} />

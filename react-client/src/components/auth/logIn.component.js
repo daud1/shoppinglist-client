@@ -4,13 +4,19 @@ import axios from 'axios';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-const style ={
-    marginLeft: 500,
-    marginRight: 500,
+import { notify } from 'react-notify-toast';
+
+const paperStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
     marginTop: 200,
     padding: '1%',
     height: 300,
     textAlign: 'center'
+}
+const divStyle = {
+    paddingLeft: '25%',
+    paddingRight: '25%'    
 }
 class LogIn extends Component {
     handleSubmit = (event) => {
@@ -21,19 +27,21 @@ class LogIn extends Component {
         axios.post(url, form)
         .then(response => {
             localStorage.setItem('token', response.data.token)
+            notify.show('Successfully Logged In', 'success');
             this.props.history.push("/lists");
             
         })
         .catch(error => {
-            console.log('ERR : ' + error)
+            notify.show('Oops! Something went wrong', 'error');
         });
     }
 
     render() {
         return (
-            <div>
-                <Paper style={style} zDepth={3}>
+            <div style={divStyle}>
+                <Paper style={paperStyle} zDepth={3}>
                     <form onSubmit={this.handleSubmit}>
+                        <br />
                         <div>
                             <TextField
                                 type='email'
