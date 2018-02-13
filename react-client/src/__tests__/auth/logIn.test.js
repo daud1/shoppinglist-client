@@ -18,11 +18,12 @@ describe ('LogIn Component', () => {
 
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<LogIn />);
-
+        
         wrapper.find('input[name="email"]')
             .simulate("change", { target: { value: 'user@mail.com' }  });
         wrapper.find('input[name="password"]')
             .simulate("change", { target: { value: 'password' }  });
+
         wrapper.find('form')
             .simulate('submit', { preventDefault() {} });
 
@@ -34,8 +35,8 @@ describe ('LogIn Component', () => {
             }
         });
         moxios.wait(() => {
-            expect(wrapper.text()).toContain('Successfully Logged In');
-            done()
+            expect(wrapper.html()).toContain('Successfully Logged In');
+            done();
         });
 
     });
