@@ -61,8 +61,8 @@ class ListView extends Component {
         return (
             <div>
                 <Search setValue={this.setLists} callback={this.fetchLists} />
-                <LogOut />
-                <CreateList callback={this.fetchLists}/>
+                <LogOutwithRouter />
+                <CreateList callback={this.fetchList}/>
                 <p> See all your lists here: </p>
                 <Lister list={this.state.list} callback={this.fetchLists} />
                 { pageNumbers }
