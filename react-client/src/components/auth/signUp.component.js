@@ -21,6 +21,18 @@ const divStyle = {
     paddingRight: '25%'    
 }
 
+const paperStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 200,
+    padding: '1%',
+    textAlign: 'center'    
+}
+
+const divStyle = {
+    paddingLeft: '25%',
+    paddingRight: '25%'    
+}
 
 class SignUp extends Component {
     
