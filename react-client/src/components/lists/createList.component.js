@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from '../generic/base';
+import { notify } from 'react-notify-toast'
 
 class CreateList extends Component {
     constructor() {
@@ -20,10 +21,12 @@ class CreateList extends Component {
         .then(response => {
             console.log(response);
             this.myFormRef.reset();
+            notify.show('List created.', 'success');
             this.props.callback();
         })
         .catch(error => {
             console.log(error);
+            notify.show('Oops', 'error');
         })
     }
 

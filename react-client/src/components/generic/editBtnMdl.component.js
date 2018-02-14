@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import baseURL from '../generic/base';
 import axios from 'axios';
+import { notify } from 'react-notify-toast';
 
 class EditBtnMdl extends Component {
    
@@ -9,7 +10,6 @@ class EditBtnMdl extends Component {
         
         let url = baseURL + 'shoppinglists/';
         let form = new FormData(event.target);
-        console.log(form);
 
         if(this.props) {
             if (this.props.item_id && this.props.list_id){
@@ -23,10 +23,12 @@ class EditBtnMdl extends Component {
             .then(response => {
                 console.log(response);
                 this.myFormRef.reset();
+                notify.show('Item name edited!', 'success');
                 this.props.callback();
             })
             .catch(error => {
                 console.log(error);
+                notify.show('Oops', 'error');
             });
         }
     }

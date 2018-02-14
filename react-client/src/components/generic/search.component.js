@@ -19,6 +19,12 @@ class Search extends Component {
         })
         .catch(error => {
             console.log('Error' + error);
+            if(error.response){
+                const { data, status} = error.response;
+                if(status === 404){
+                    this.props.callback();
+                }
+            }
         });
     }
 

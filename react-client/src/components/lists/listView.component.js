@@ -60,7 +60,7 @@ class ListView extends Component {
         }
         return (
             <div>
-                <Search setValue={this.setLists} />
+                <Search setValue={this.setLists} callback={this.fetchLists} />
                 <LogOutwithRouter />
                 <CreateList callback={this.fetchList}/>
                 <p> See all your lists here: </p>
