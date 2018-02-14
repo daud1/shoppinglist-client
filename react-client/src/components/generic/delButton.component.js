@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from './base';
 import DeleteIcon from 'material-ui-icons/Delete'
-import FloatingActionButton from 'material-ui/FloatingActionButton'
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import { notify } from 'react-notify-toast';
 
 class DelButton extends Component {
     
@@ -23,7 +24,7 @@ class DelButton extends Component {
                 headers: {'Authorization': localStorage.getItem('token')}
             }).then(response => {
                 this.props.callback();
-                // window.location.reload();
+                notify.show('Item deleted.', 'success');
             }).catch(error => {
                 console.log(error);
                 if(error.response){
@@ -32,6 +33,7 @@ class DelButton extends Component {
                         this.props.callback();
                     }
                 }
+                notify.show('Oops!', 'error');
             });
         } else {
             console.log('Something went wrong! Check your internet connection');
@@ -43,8 +45,7 @@ class DelButton extends Component {
             <FloatingActionButton>
                 <DeleteIcon 
                     onClick={this.handleClick}
-                />
-                
+                />                
             </FloatingActionButton>
         )
     }

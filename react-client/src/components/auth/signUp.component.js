@@ -6,13 +6,19 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
+import { notify } from 'react-notify-toast';
 
-const style = {
-    marginLeft: 500,
-    marginRight: 500,
+const paperStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
     marginTop: 200,
     padding: '1%',
-    
+    textAlign: 'center'    
+}
+
+const divStyle = {
+    paddingLeft: '25%',
+    paddingRight: '25%'    
 }
 
 
@@ -26,17 +32,19 @@ class SignUp extends Component {
         axios.post(url, form)
         .then(response => {
             console.log(response);
+            notify.show('Registered!', 'success');
             this.props.history.push('/login');
         })
         .catch(error => {
             console.log(error)
+            notify.show('Oops!', 'error');            
         });
     }
 
     render() {
         return (
-            <div>
-                <Paper style={style} zDepth={3}>
+            <div style={divStyle}>
+                <Paper style={paperStyle} zDepth={3}>
                     <form onSubmit={this.handleSubmit}>
                     
                         <div>
@@ -69,7 +77,7 @@ class SignUp extends Component {
                         </div>
 
                     </form>
-                    <p> Already have an account? <Link to={'/login'}>Log In</Link> instead</p>
+                    <p> Already have an account? <Link to={'/login'}>Log In</Link></p>
                 </Paper>
                 
             </div>
