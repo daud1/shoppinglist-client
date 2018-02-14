@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateList Form Component matches snapshot 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      name="name"
+      placeholder="Enter the name of your new list here"
+      type="text"
+    />
+    <button
+      type="submit"
+    >
+      CreateList
+    </button>
+  </form>
+</div>
+`;

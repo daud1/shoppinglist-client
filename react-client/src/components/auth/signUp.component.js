@@ -1,6 +1,8 @@
 import React, { Component } from  'react';
 import baseURL from '../generic/base';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 
 class SignUp extends Component {
     handleSubmit = (event) => {
@@ -27,7 +29,7 @@ class SignUp extends Component {
                     <input type='password' placeholder='Re-enter your password' name='confirm'/>
                     <button type='submit'>Sign Up</button>
                 </form>
-                <p> Already have an account? Log In instead</p>
+                <p> Already have an account? <Link to={`/login`}>Log In</Link> instead</p>
             </div>
         );
     }
