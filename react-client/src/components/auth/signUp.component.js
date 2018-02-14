@@ -21,7 +21,6 @@ const divStyle = {
     paddingRight: '25%'    
 }
 
-
 class SignUp extends Component {
     
     handleSubmit = (event) => {
