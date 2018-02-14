@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import baseURL from '../generic/base';
 import axios from 'axios';
+import { notify } from 'react-notify-toast';
 
 class CreateItem extends Component {
     constructor () {
@@ -19,9 +20,11 @@ class CreateItem extends Component {
         .then(response => {
             console.log(response);
             this.myFormRef.reset();
+            notify.show('Item added!', 'success');
             this.props.callback();
         })
         .catch(error => {
+            notify.show('Oops!', 'error');
             console.log(error);
         })
     }
