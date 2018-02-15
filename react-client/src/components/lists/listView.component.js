@@ -31,7 +31,6 @@ class ListView extends Component {
                     this.setState({'list': false});
                 }
             }
-            console.log(error);
         });
     }
 
@@ -62,7 +61,7 @@ class ListView extends Component {
             <div>
                 <Search setValue={this.setLists} callback={this.fetchLists} />
                 <LogOutwithRouter />
-                <CreateList callback={this.fetchList}/>
+                <CreateList callback={this.fetchLists}/>
                 <p> See all your lists here: </p>
                 <Lister list={this.state.list} callback={this.fetchLists} />
                 { pageNumbers }

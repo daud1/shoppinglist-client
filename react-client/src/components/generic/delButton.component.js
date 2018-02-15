@@ -11,13 +11,11 @@ class DelButton extends Component {
         let url = baseURL + 'shoppinglists/';
         // if props is not null, generate appropriate url for list or item deletion
         if (this.props) {
-
-            console.log(!this.props.item_id)
             if (this.props.item_id && this.props.list_id){
-                url = baseURL + this.props.list_id + '/items/' + this.props.item_id;
+                url = url + this.props.list_id + '/items/' + this.props.item_id;
                 
             } else if (this.props.list_id && !this.props.item_id) {
-                url = baseURL + this.props.list_id;
+                url = url + this.props.list_id;
             }
             // make a call to the api to delete the selected item/list
             axios.delete(url, {
@@ -26,7 +24,6 @@ class DelButton extends Component {
                 this.props.callback();
                 notify.show('Item deleted.', 'success');
             }).catch(error => {
-                console.log(error);
                 if(error.response){
                     const { data, status} = error.response;
                     if(status === 404){
@@ -36,7 +33,7 @@ class DelButton extends Component {
                 notify.show('Oops!', 'error');
             });
         } else {
-            console.log('Something went wrong! Check your internet connection');
+            notify.show('Something went wrong! Check your internet connection', 'error');
         } 
     }
 

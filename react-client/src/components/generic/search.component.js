@@ -3,6 +3,7 @@ import axios from 'axios';
 import baseURL from './base';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import { notify } from 'react-notify-toast';
 
 class Search extends Component {
 
@@ -18,11 +19,11 @@ class Search extends Component {
             console.log(response.data);
         })
         .catch(error => {
-            console.log('Error' + error);
             if(error.response){
                 const { data, status} = error.response;
                 if(status === 404){
                     this.props.callback();
+                    notify.show('No lists by that name!', 'error');
                 }
             }
         });
