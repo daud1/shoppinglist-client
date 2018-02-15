@@ -1,25 +1,11 @@
 import React, { Component } from  'react';
 import baseURL from '../generic/base';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
 import { notify } from 'react-notify-toast';
-
-const paperStyle = {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: 200,
-    padding: '1%',
-    textAlign: 'center'    
-}
-
-const divStyle = {
-    paddingLeft: '25%',
-    paddingRight: '25%'    
-}
 
 const paperStyle = {
     marginLeft: 'auto',
