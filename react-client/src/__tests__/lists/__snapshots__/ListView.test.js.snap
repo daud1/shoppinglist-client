@@ -3,6 +3,7 @@
 exports[`ListView Component matches snapshot 1`] = `
 <div>
   <Search
+    callback={[Function]}
     setValue={[Function]}
   />
   <withRouter(LogOut) />

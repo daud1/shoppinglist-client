@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeleteButton Component matches snapshot 1`] = `
-<button
-  onClick={[Function]}
+<FloatingActionButton
+  disabled={false}
+  mini={false}
+  secondary={false}
+  zDepth={2}
 >
-  Delete
-</button>
+  <pure(Delete)
+    onClick={[Function]}
+  />
+</FloatingActionButton>
 `;

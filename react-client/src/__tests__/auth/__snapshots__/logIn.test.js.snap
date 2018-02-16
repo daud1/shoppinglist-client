@@ -1,25 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LogIn Component matches snapshot 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
+<div
+  style={
+    Object {
+      "paddingLeft": "25%",
+      "paddingRight": "25%",
+    }
+  }
+>
+  <Paper
+    circle={false}
+    rounded={true}
+    style={
+      Object {
+        "height": 300,
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 200,
+        "padding": "1%",
+        "textAlign": "center",
+      }
+    }
+    transitionEnabled={true}
+    zDepth={3}
   >
-    <input
-      name="email"
-      placeholder="Enter your email address"
-      type="email"
-    />
-    <input
-      name="password"
-      placeholder="Enter your password"
-      type="password"
-    />
-    <button
-      type="submit"
+    <form
+      onSubmit={[Function]}
     >
-      Log In
-    </button>
-  </form>
+      <br />
+      <div>
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Enter your email address"
+          fullWidth={false}
+          multiLine={false}
+          name="email"
+          rows={1}
+          type="email"
+          underlineShow={true}
+        />
+      </div>
+      <div>
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Password"
+          fullWidth={false}
+          multiLine={false}
+          name="password"
+          rows={1}
+          type="password"
+          underlineShow={true}
+        />
+      </div>
+      <br />
+      <br />
+      <div>
+        <RaisedButton
+          disabled={false}
+          fullWidth={false}
+          label="Log In"
+          labelPosition="after"
+          primary={true}
+          secondary={false}
+          type="submit"
+        />
+      </div>
+    </form>
+  </Paper>
 </div>
 `;

@@ -5,17 +5,27 @@ exports[`Search Component matches snapshot 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <input
+    <TextField
+      disabled={false}
+      floatingLabelFixed={false}
+      floatingLabelText="Search"
+      fullWidth={false}
+      multiLine={false}
       name="q"
       onChange={[Function]}
-      placeholder="Search"
+      rows={1}
       type="text"
+      underlineShow={true}
     />
-    <button
+    <RaisedButton
+      disabled={false}
+      fullWidth={false}
+      label="Search"
+      labelPosition="after"
+      primary={false}
+      secondary={false}
       type="submit"
-    >
-      Search
-    </button>
+    />
   </form>
 </div>
 `;

@@ -32,7 +32,7 @@ describe ('SignUp Component', () => {
 
         });
         moxios.wait(() => {
-            expect(wrapper.html()).toContain('User successfully created!');
+            expect(wrapper.html()).toContain('Registered!');
             done();
         });
     });

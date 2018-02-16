@@ -1,40 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignUp Component matches snapshot 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
+<div
+  style={
+    Object {
+      "paddingLeft": "25%",
+      "paddingRight": "25%",
+    }
+  }
+>
+  <Paper
+    circle={false}
+    rounded={true}
+    style={
+      Object {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 200,
+        "padding": "1%",
+        "textAlign": "center",
+      }
+    }
+    transitionEnabled={true}
+    zDepth={3}
   >
-    <input
-      name="email"
-      placeholder="Enter your email address"
-      type="email"
-    />
-    <input
-      name="password"
-      placeholder="Enter a password of your choice"
-      type="password"
-    />
-    <input
-      name="confirm"
-      placeholder="Re-enter your password"
-      type="password"
-    />
-    <button
-      type="submit"
+    <form
+      onSubmit={[Function]}
     >
-      Sign Up
-    </button>
-  </form>
-  <p>
-     Already have an account? 
-    <Link
-      replace={false}
-      to="/login"
-    >
-      Log In
-    </Link>
-     instead
-  </p>
+      <div>
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Email"
+          fullWidth={false}
+          multiLine={false}
+          name="email"
+          onChange={[Function]}
+          rows={1}
+          type="email"
+          underlineShow={true}
+        />
+      </div>
+      <div>
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Password"
+          fullWidth={false}
+          multiLine={false}
+          name="password"
+          rows={1}
+          type="password"
+          underlineShow={true}
+        />
+      </div>
+      <div>
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Confirm Password"
+          fullWidth={false}
+          multiLine={false}
+          name="confirm"
+          rows={1}
+          type="password"
+          underlineShow={true}
+        />
+      </div>
+      <div>
+        <RaisedButton
+          disabled={false}
+          fullWidth={false}
+          label="Sign Up"
+          labelPosition="after"
+          primary={true}
+          secondary={false}
+          type="submit"
+        />
+      </div>
+    </form>
+    <p>
+       Already have an account? 
+      <Link
+        replace={false}
+        to="/login"
+      >
+        Log In
+      </Link>
+    </p>
+  </Paper>
 </div>
 `;

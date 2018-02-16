@@ -2,8 +2,23 @@
 
 exports[`Lister Component matches snapshot 1`] = `
 <div>
-  <ul>
-    Oops! Nothing Found!
-  </ul>
+  <Paper
+    circle={false}
+    rounded={true}
+    style={
+      Object {
+        "margin": "2%",
+        "marginLeft": 200,
+        "marginRight": 200,
+        "padding": "1%",
+      }
+    }
+    transitionEnabled={true}
+    zDepth={3}
+  >
+    <ul>
+      Nothing Found!
+    </ul>
+  </Paper>
 </div>
 `;
