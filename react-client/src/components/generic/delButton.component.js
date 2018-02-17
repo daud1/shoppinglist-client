@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from './base';
-import DeleteIcon from 'material-ui-icons/Delete'
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { notify } from 'react-notify-toast';
 
 class DelButton extends Component {
@@ -24,28 +22,25 @@ class DelButton extends Component {
                 this.props.callback();
                 notify.show('Item deleted.', 'success');
             }).catch(error => {
+                this.props.callback();
                 if(error.response){
                     const { data, status} = error.response;
-                    if(status === 404){
-                        this.props.callback();
+                    if (status)
+                        notify.show(data.ERR, 'error');
                     }
-                }
-                notify.show('Oops!', 'error');
+                notify.show('Oops! Something went wrong.', 'error');
             });
         } else {
-            notify.show('Something went wrong! Check your internet connection', 'error');
-        } 
+            notify.show('Oops. Something went wrong!', 'error');
+        }
     }
 
     render() {
         return (
-            <FloatingActionButton>
-                <DeleteIcon 
-                    onClick={this.handleClick}
-                />                
-            </FloatingActionButton>
+            <button type="button" className="btn btn-danger" onClick={this.handleClick}>
+                Delete
+            </button>
         )
     }
 }
-
 export default DelButton;

@@ -9,6 +9,7 @@ import SignUp from './components/auth/signUp.component';
 import ForgotPassword from './components/auth/forgotPassword.component';
 import ItemsView from './components/items/itemsView.component';
 import ListView from './components/lists/listView.component';
+import ResetPassword from './components/auth/resetPassword.component';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path='/login' component={LogIn} />
           <Route exact path='/register' component={SignUp} />
           <Route exact path='/forgotpassword' component={ForgotPassword} />
+          <Route exact path='/resetpassword' component={ResetPassword} />
           <Route exact path='/items/:list_id' component={ItemsView} />
           <Route exact path='/lists' component={ListView} />
           

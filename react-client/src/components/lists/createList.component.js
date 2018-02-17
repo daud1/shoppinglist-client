@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from '../generic/base';
-import { notify } from 'react-notify-toast'
+import { notify } from 'react-notify-toast';
+import TextField from 'material-ui/TextField';
 
 class CreateList extends Component {
     constructor() {
@@ -19,23 +20,31 @@ class CreateList extends Component {
             headers: {'Authorization': localStorage.getItem('token')}
         })
         .then(response => {
-            console.log(response);
             this.myFormRef.reset();
             notify.show('List created.', 'success');
             this.props.callback();
         })
         .catch(error => {
-            console.log(error);
-            notify.show('Oops', 'error');
-        })
+            if (error.response) {
+                const { data, status } = error.response;
+                if (status) {
+                    notify.show(data.ERR, 'error');
+                }
+            }
+            notify.show('Oops! Something went wrong. Try again!', 'error');
+        });
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} ref={(fm) => this.myFormRef = fm}>
-                    <input type='text' placeholder='Enter the name of your new list here' name='name' />
-                    <button type='submit'>CreateList</button>
+                    <TextField
+                            type='text'
+                            name = 'name'
+                            floatingLabelText='Enter list name'
+                    />
+                    <button type='submit' className="btn btn-primary">Create List</button>
                 </form>
             </div>
         )

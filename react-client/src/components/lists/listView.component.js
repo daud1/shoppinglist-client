@@ -5,6 +5,12 @@ import Lister from '../generic/list.component';
 import LogOutwithRouter from '../auth/logOut.component';
 import CreateList from './createList.component';
 import Search from '../generic/search.component';
+import { notify } from 'react-notify-toast';
+import { Link } from 'react-router-dom';
+
+const appBarStyle = {
+    marginBottom: '5%'
+}
 
 class ListView extends Component {
     constructor() {
@@ -18,7 +24,6 @@ class ListView extends Component {
             headers: {'Authorization': localStorage.getItem('token')}
          })
         .then((response) => {
-            console.log(response); 
             this.setState({
                 list:response.data.lists,
                 numberOfPages: response.data.number_of_pages
@@ -27,14 +32,20 @@ class ListView extends Component {
         .catch((error) => {
             if(error.response){
                 const {status, data} = error.response;
-                if(status === 404){
+                if(status === 404)
                     this.setState({'list': false});
+                else {
+                    if(data.ERR)
+                        notify.show(data.ERR, 'error');
                 }
             }
+            notify.show('Oops, something went wrong. Try again!', 'error');
         });
     }
 
     componentWillMount(){
+        if(!localStorage.getItem('token'))
+            this.props.history.push('/login');
         this.fetchLists();
     }
 
@@ -52,19 +63,39 @@ class ListView extends Component {
         let pageNumbers = []
         for(let i=1; i <= this.state.numberOfPages; i++){
             pageNumbers.push(
-                <li key={i}>
-                    <a href="" data-page={i} onClick={this.getPage}>{i}</a>
+                <li className="page-item" key={i}>
+                    <a href="" className="page-link" data-page={i} onClick={this.getPage}>{i}</a>
                 </li>
             )
         }
         return (
             <div>
-                <Search setValue={this.setLists} callback={this.fetchLists} />
-                <LogOutwithRouter />
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <Link className="navbar-brand" to={'/lists'}>Shopping Lists</Link>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <Search setValue={this.setLists} callback={this.fetchLists} />
+                        </ul>
+                            
+                        <ul class="nav navbar-nav navbar-right">
+                            <br />
+                            <LogOutwithRouter />
+                        </ul>
+                        </div>
+                    </div>
+                </nav>
                 <CreateList callback={this.fetchLists}/>
-                <p> See all your lists here: </p>
+                <h3> See all your lists here: </h3>
                 <Lister list={this.state.list} callback={this.fetchLists} />
-                { pageNumbers }
+                <nav>
+                    <ul className="pagination">
+                        { pageNumbers }
+                    </ul>
+                </nav>
             </div>
         )
     }

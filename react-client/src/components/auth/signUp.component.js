@@ -21,7 +21,11 @@ const divStyle = {
 }
 
 class SignUp extends Component {
-    
+    constructor() {
+        super();
+        this.state = {}
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         let url = baseURL + 'auth/register';
@@ -29,13 +33,16 @@ class SignUp extends Component {
         
         axios.post(url, form)
         .then(response => {
-            console.log(response);
             notify.show('Registered!', 'success');
             this.props.history.push('/login');
         })
         .catch(error => {
-            console.log(error)
-            notify.show('Oops!', 'error');            
+            if (error.response){
+                const { data, status } = error.response;
+                if (status){
+                    notify.show(data.ERR, 'error');
+                }
+            }
         });
     }
 

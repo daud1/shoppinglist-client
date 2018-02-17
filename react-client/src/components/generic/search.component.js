@@ -49,20 +49,14 @@ class Search extends Component {
 
     render() {    
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <TextField
-                        type='text'
-                        floatingLabelText='Search'
-                        name='q'
-                        onChange={this.handleChange}
-                    />
-                    <RaisedButton
-                        type='submit'
-                        label='Search'
-                    />
-                </form>
-            </div>
+            <form onSubmit={this.handleSubmit} className="navbar-form navbar-left">
+                <div className="form-group">
+                    <input type='text' name='q' placeholder='Search' onChange={this.handleChange} />
+                </div>
+                <button type='submit' className='btn btn-default'>
+                    <i className="glyphicon glyphicon-search"></i>    
+                </button>
+            </form>
         )
     }
 }

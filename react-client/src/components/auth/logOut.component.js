@@ -13,7 +13,6 @@ class LogOut extends Component {
             headers: {'Authorization': localStorage.getItem('token')}
         })
         .then(response =>{
-            console.log(response);
             localStorage.removeItem('token');
             this.props.history.push('/login');
         })
@@ -23,7 +22,9 @@ class LogOut extends Component {
     }
     render() {
         return (
-            <button onClick={this.handleClick}>LogOut</button>
+            <button onClick={this.handleClick} className="btn btn-success" >
+                LogOut
+            </button>
         )
     }
 }
