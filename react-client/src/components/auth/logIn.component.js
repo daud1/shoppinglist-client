@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { notify } from 'react-notify-toast';
+import { Link } from 'react-router-dom';
 
 const paperStyle = {
     marginLeft: 'auto',
@@ -28,11 +29,16 @@ class LogIn extends Component {
         .then(response => {
             localStorage.setItem('token', response.data.token)
             notify.show('Successfully Logged In', 'success');
-            this.props.history.push("/lists");
-            
+            this.props.history.push("/lists");            
         })
         .catch(error => {
-            notify.show('Oops! Something went wrong', 'error');
+            if(error.response){
+                const { data, status } = error.response;
+                if (status) {
+                    notify.show(data.ERR, 'error');
+                }
+            }
+            notify.show('Oops!', 'error');
         });
     }
 
@@ -46,7 +52,7 @@ class LogIn extends Component {
                             <TextField
                                 type='email'
                                 name = 'email'
-                                floatingLabelText='Enter your email address'
+                                floatingLabelText='Email Address'
                             />
                         </div>
                         <div>
@@ -57,14 +63,11 @@ class LogIn extends Component {
                             />
                         </div>
                         <br />
-                        <br />
                         <div>
-                            <RaisedButton
-                                type='submit'
-                                label='Log In'
-                                primary
-                            />
+                            <RaisedButton type='submit' label='Log In' primary />
                         </div>
+                        <br />
+                        <Link to={'/forgotpassword'}>Forgot Password?</Link>
                     </form>
                 </Paper>
             </div>

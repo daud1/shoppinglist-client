@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import baseURL from '../generic/base';
 import axios from 'axios';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const paperStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 200,
+    padding: '1%',
+    height: 250,
+    width: '80%',
+    textAlign: 'center'
+}
+const divStyle = {
+    paddingLeft: '25%',
+    paddingRight: '25%'    
+}
+
 class ForgotPassword extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
@@ -18,12 +36,28 @@ class ForgotPassword extends Component {
     
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <p> Enter your email address below to recieve a password reset link.</p>
-                    <input type='email' name='email' placeholder='Enter your email address'/>
-                    <button type='submit'>Send Reset Link</button>
-                </form>
+            <div style={divStyle}>
+                <Paper style={paperStyle} zDepth={3}>
+                    <h4> Enter your email address below to recieve a password reset link.</h4>
+                    <form onSubmit={this.handleSubmit}>
+                        <br />
+                        <div>
+                            <TextField
+                                type='email'
+                                name = 'email'
+                                floatingLabelText='Email Address'
+                            />
+                        </div>
+                        <br />
+                        <div>
+                            <RaisedButton
+                                type='submit'
+                                label='Send Reset Link'
+                                primary
+                            />
+                        </div>
+                    </form>
+                </Paper>
             </div>
         );
     }
