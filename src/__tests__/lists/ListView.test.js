@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, render, mount } from 'enzyme';
-import ListView from '../../components/lists/ListView.component';
+import ListView from '../../components/lists/listView.component';
 import shallowToJson from 'enzyme-to-json';
 
 describe ('ListView Component', () => {
