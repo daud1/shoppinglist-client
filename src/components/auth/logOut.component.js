@@ -13,8 +13,12 @@ class LogOut extends Component {
             headers: {'Authorization': localStorage.getItem('token')}
         })
         .then(response =>{
+<<<<<<< HEAD:src/components/auth/logOut.component.js
             localStorage.removeItem('token');
             this.props.history.push('/login');
+=======
+            console.log(response);
+>>>>>>> f8d37afac3b5e763391b618193ddb8fa8f8cbe8e:react-client/src/components/auth/logOut.component.js
         })
         .catch(error => {
             console.log(error);
