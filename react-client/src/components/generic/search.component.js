@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import baseURL from './base';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import { notify } from 'react-notify-toast';
 
 class Search extends Component {

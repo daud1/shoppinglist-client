@@ -8,9 +8,6 @@ import Search from '../generic/search.component';
 import { notify } from 'react-notify-toast';
 import { Link } from 'react-router-dom';
 
-const appBarStyle = {
-    marginBottom: '5%'
-}
 
 class ListView extends Component {
     constructor() {
