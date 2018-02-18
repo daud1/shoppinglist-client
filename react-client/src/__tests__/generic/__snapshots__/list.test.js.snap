@@ -2,23 +2,55 @@
 
 exports[`Lister Component matches snapshot 1`] = `
 <div>
-  <Paper
-    circle={false}
-    rounded={true}
+  <Card
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
     style={
       Object {
         "margin": "2%",
-        "marginLeft": 200,
-        "marginRight": 200,
+        "marginLeft": "20%",
+        "marginRight": "20%",
         "padding": "1%",
+        "textAlign": "center",
       }
     }
-    transitionEnabled={true}
-    zDepth={3}
+    zDepth={2}
   >
-    <ul>
-      Nothing Found!
-    </ul>
-  </Paper>
+    <Table
+      allRowsSelected={false}
+      fixedFooter={true}
+      fixedHeader={true}
+      height="inherit"
+      multiSelectable={false}
+      selectable={true}
+    >
+      <TableBody
+        allRowsSelected={false}
+        deselectOnClickaway={true}
+        displayRowCheckbox={true}
+        multiSelectable={false}
+        preScanRows={true}
+        selectable={true}
+        style={Object {}}
+      >
+        <TableRow
+          displayBorder={true}
+          hoverable={false}
+          hovered={false}
+          selectable={true}
+          striped={false}
+        >
+          <TableRowColumn
+            hoverable={false}
+          >
+            <p>
+               Nothing here yet. Add something! 
+            </p>
+          </TableRowColumn>
+        </TableRow>
+      </TableBody>
+    </Table>
+  </Card>
 </div>
 `;

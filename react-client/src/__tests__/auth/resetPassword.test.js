@@ -19,8 +19,8 @@ describe ('ResetPassword Component', () => {
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<ResetPassword />);
 
-        wrapper.find('input[name="new_password"]').simulate('change', { target: { value: 'pswd' } });
-        wrapper.find('input[name="confirm"]').simulate('change', { target: { value: 'pswd' } });
+        wrapper.find('TextField[name="new_password"]').simulate('change', { target: { value: 'pswd' } });
+        wrapper.find('TextField[name="confirm"]').simulate('change', { target: { value: 'pswd' } });
         wrapper.find('form').simulate('submit', {preventDefault() {} });
 
         moxios.stubRequest('http://localhost:5000/auth/reset-password', {

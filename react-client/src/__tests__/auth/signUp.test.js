@@ -19,9 +19,9 @@ describe ('SignUp Component', () => {
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<SignUp />);
 
-        wrapper.find('input[name="email"]').simulate('change', { target: { value: 'user@email.com' } });
-        wrapper.find('input[name="password"]').simulate('change', { target: { value: 'password' } });
-        wrapper.find('input[name="confirm"]').simulate('change', { target: { value: 'password' } });
+        wrapper.find('TextField[name="email"]').simulate('change', { target: { value: 'user@email.com' } });
+        wrapper.find('TextField[name="password"]').simulate('change', { target: { value: 'password' } });
+        wrapper.find('TextField[name="confirm"]').simulate('change', { target: { value: 'password' } });
         wrapper.find('form').simulate('submit', { preventDefault() {} });
         
         moxios.stubRequest('http://localhost:5000/auth/register', {

@@ -5,15 +5,22 @@ exports[`CreateList Form Component matches snapshot 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <input
+    <TextField
+      disabled={false}
+      floatingLabelFixed={false}
+      floatingLabelText="Enter list name"
+      fullWidth={false}
+      multiLine={false}
       name="name"
-      placeholder="Enter the name of your new list here"
+      rows={1}
       type="text"
+      underlineShow={true}
     />
     <button
+      className="btn btn-primary"
       type="submit"
     >
-      CreateList
+      Create List
     </button>
   </form>
 </div>

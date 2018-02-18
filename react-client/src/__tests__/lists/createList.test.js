@@ -18,7 +18,7 @@ describe ('CreateList Form Component', () => {
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<CreateList />);
 
-        wrapper.find('input[name="name"]').simulate('change', { target: { value: 'newList' } });
+        wrapper.find('TextField[name="name"]').simulate('change', { target: { value: 'newList' } });
         wrapper.find('form').simulate('submit', { preventDefault() {} });
 
         moxios.stubRequest('http://localhost:5000/shoppinglists/', {

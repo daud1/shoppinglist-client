@@ -35,7 +35,6 @@ exports[`SignUp Component matches snapshot 1`] = `
           fullWidth={false}
           multiLine={false}
           name="email"
-          onChange={[Function]}
           rows={1}
           type="email"
           underlineShow={true}

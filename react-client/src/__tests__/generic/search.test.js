@@ -18,8 +18,8 @@ describe ('Search Component', () => {
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<Search />);
 
-        wrapper.find('input[name="q"]').simulate('change', { target: { value: 'l' } });
-        wrapper.find('form').simulate('submit', {preventDefault() {} });
+        wrapper.find('TextField[name="q"]').simulate('change', { target: { value: 'l' } });
+        wrapper.find('form').simulate('submit', { preventDefault() {} });
 
         moxios.stubRequest('http://localhost:5000/shoppinglists/?q=l', {
             status: 200,

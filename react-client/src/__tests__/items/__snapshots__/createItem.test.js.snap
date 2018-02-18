@@ -5,15 +5,22 @@ exports[`CreateItem Form Component matches snapshot 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <input
+    <TextField
+      disabled={false}
+      floatingLabelFixed={false}
+      floatingLabelText="Enter item name"
+      fullWidth={false}
+      multiLine={false}
       name="name"
-      placeholder="Enter name here"
+      rows={1}
       type="text"
+      underlineShow={true}
     />
     <button
+      className="btn btn-primary"
       type="submit"
     >
-      Create Item
+      Add Item
     </button>
   </form>
 </div>

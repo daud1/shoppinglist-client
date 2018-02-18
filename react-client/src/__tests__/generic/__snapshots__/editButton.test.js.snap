@@ -2,19 +2,79 @@
 
 exports[`EditButtonModal Component matches snapshot 1`] = `
 <div>
-  <form
-    onSubmit={[Function]}
+  <button
+    className="btn btn-primary"
+    data-target="#editModal"
+    data-toggle="modal"
+    type="button"
   >
-    <input
-      name="name"
-      placeholder="Enter new name"
-      type="text"
-    />
-    <button
-      type="submit"
+    Edit
+  </button>
+  <div
+    className="modal fade"
+    id="editModal"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className="modal-dialog"
+      role="document"
     >
-      Edit
-    </button>
-  </form>
+      <div
+        className="modal-content"
+      >
+        <div
+          className="modal-header"
+        >
+          <h3
+            className="modal-title"
+          >
+            Edit List
+          </h3>
+        </div>
+        <div
+          className="modal-body"
+        >
+          <form
+            onSubmit={[Function]}
+            style={
+              Object {
+                "marginLeft": "20%",
+              }
+            }
+          >
+            <TextField
+              disabled={false}
+              floatingLabelFixed={false}
+              floatingLabelText="Enter item name"
+              fullWidth={false}
+              multiLine={false}
+              name="name"
+              rows={1}
+              type="text"
+              underlineShow={true}
+            />
+            <button
+              className="btn btn-success"
+              type="submit"
+            >
+              Edit
+            </button>
+          </form>
+        </div>
+        <div
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-danger"
+            data-dismiss="modal"
+            type="submit"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

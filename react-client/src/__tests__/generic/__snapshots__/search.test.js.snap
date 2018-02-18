@@ -1,31 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search Component matches snapshot 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
+<form
+  className="navbar-form navbar-left"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group"
   >
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Search"
-      fullWidth={false}
-      multiLine={false}
+    <input
       name="q"
       onChange={[Function]}
-      rows={1}
+      placeholder="Search"
       type="text"
-      underlineShow={true}
     />
-    <RaisedButton
-      disabled={false}
-      fullWidth={false}
-      label="Search"
-      labelPosition="after"
-      primary={false}
-      secondary={false}
-      type="submit"
+  </div>
+  <button
+    className="btn btn-default"
+    type="submit"
+  >
+    <i
+      className="glyphicon glyphicon-search"
     />
-  </form>
-</div>
+  </button>
+</form>
 `;

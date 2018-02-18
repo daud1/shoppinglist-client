@@ -19,7 +19,7 @@ describe ('ForgottenPassword Component', () => {
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<ForgotPassword />);
 
-        wrapper.find('input[name="email"]').simulate('change', { target: { value: 'user@email.com' } });
+        wrapper.find('TextField[name="email"]').simulate('change', { target: { value: 'user@email.com' } });
         wrapper.find('form').simulate('submit', { preventDefault() {} });
 
         moxios.stubRequest('http://localhost:5000/auth/forgot-password', {

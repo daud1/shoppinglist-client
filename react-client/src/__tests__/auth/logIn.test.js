@@ -8,8 +8,11 @@ import moxios from 'moxios';
 describe ('LogIn Component', () => {
     it('should render without crashing', () => {
     const wrapper = shallow(<LogIn />);
+        console.log(wrapper.debug());
         expect(wrapper.exists(<div></div>)).toBe(true)
     });
+
+    
 
     it('matches snapshot', () => {
         const wrapper = shallow(<LogIn />);
@@ -19,9 +22,9 @@ describe ('LogIn Component', () => {
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<LogIn />);
         
-        wrapper.find('input[name="email"]')
+        wrapper.find('TextField[name="email"]')
             .simulate("change", { target: { value: 'user@mail.com' }  });
-        wrapper.find('input[name="password"]')
+        wrapper.find('TextField[name="password"]')
             .simulate("change", { target: { value: 'password' }  });
 
         wrapper.find('form')
@@ -34,6 +37,7 @@ describe ('LogIn Component', () => {
                 'token': 'random_hexalpha_string',
             }
         });
+        
         moxios.wait(() => {
             expect(wrapper.html()).toContain('Successfully Logged In');
             done();

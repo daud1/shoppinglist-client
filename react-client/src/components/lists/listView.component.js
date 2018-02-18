@@ -12,7 +12,9 @@ import { Link } from 'react-router-dom';
 class ListView extends Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            pageNumbers: []
+        };
     }
     
     fetchLists = (page=1) => {
@@ -57,9 +59,8 @@ class ListView extends Component {
 
     render() {
 
-        let pageNumbers = []
         for(let i=1; i <= this.state.numberOfPages; i++){
-            pageNumbers.push(
+            this.state.pageNumbers.push(
                 <li className="page-item" key={i}>
                     <a href="" className="page-link" data-page={i} onClick={this.getPage}>{i}</a>
                 </li>
@@ -90,7 +91,7 @@ class ListView extends Component {
                 <Lister list={this.state.list} callback={this.fetchLists} />
                 <nav>
                     <ul className="pagination">
-                        { pageNumbers }
+                        { this.state.pageNumbers }
                     </ul>
                 </nav>
             </div>
