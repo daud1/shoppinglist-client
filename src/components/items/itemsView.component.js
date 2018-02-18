@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom';
 class ItemsView extends Component{
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            pageNumbers: []
+        }
     }
 
     fetchItems = (page=1) => {
@@ -59,11 +61,10 @@ class ItemsView extends Component{
 
         let pageNumbers = []
         for(let i=1; i <= this.state.numberOfPages; i++){
-            pageNumbers.push(
-                <li className="page-item" key={i}>
-                    <a href='' data-page={i} className="page-link" onClick={this.getPage}>{i}</a>
-                </li>
-            )
+            this.state.pageNumbers[i-1] = 
+                    <li className="page-item" key={i}>
+                        <a href="" className="page-link" data-page={i} onClick={this.getPage}>{i}</a>
+                    </li>
         }
         return (
             <div>
@@ -89,7 +90,7 @@ class ItemsView extends Component{
                 <Lister list={this.state.listItems} callback={this.fetchItems}/>
                 <nav>
                     <ul className="pagination">
-                        { pageNumbers }
+                        { this.state.pageNumbers }
                     </ul>
                 </nav>
             </div>

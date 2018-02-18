@@ -60,11 +60,10 @@ class ListView extends Component {
     render() {
 
         for(let i=1; i <= this.state.numberOfPages; i++){
-            this.state.pageNumbers.push(
-                <li className="page-item" key={i}>
-                    <a href="" className="page-link" data-page={i} onClick={this.getPage}>{i}</a>
-                </li>
-            )
+            this.state.pageNumbers[i-1] = 
+                    <li className="page-item" key={i}>
+                        <a href="" className="page-link" data-page={i} onClick={this.getPage}>{i}</a>
+                    </li>
         }
         return (
             <div>

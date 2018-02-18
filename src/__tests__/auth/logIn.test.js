@@ -7,8 +7,7 @@ import moxios from 'moxios';
 
 describe ('LogIn Component', () => {
     it('should render without crashing', () => {
-    const wrapper = shallow(<LogIn />);
-        console.log(wrapper.debug());
+        const wrapper = shallow(<LogIn />);
         expect(wrapper.exists(<div></div>)).toBe(true)
     });
 
