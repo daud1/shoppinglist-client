@@ -3,12 +3,22 @@ import baseURL from '../generic/base';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import Dialog from 'material-ui/Dialog';
 
 const formStyle = {
-    marginLeft: '20%'
+    marginLeft: '30%'
 }
+
 class EditBtnMdl extends Component {
-   
+    constructor() {
+        super();
+        this.state = {
+            open: false
+        }
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         
@@ -37,41 +47,39 @@ class EditBtnMdl extends Component {
         }
     }
 
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+    
+    handleClose = () => {
+        this.setState({open: false});
+    };
+    
     render() {
+        const actions = [
+            <FlatButton
+              label="Close"
+              primary={true}
+              onClick={this.handleClose}
+            />,
+          ];
         return (
             <div>
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#editModal" data-backdrop="static">
-                     Edit
-                </button>
-                <div className="modal fade" id="editModal" tabIndex="-1" role="dialog">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                        <div className="modal-header">
-                            <h3 className="modal-title">Edit List</h3>
-                        </div>
-                        <div className="modal-body">
-                            <form style={formStyle} onSubmit={this.handleSubmit} ref={(fm) => this.myFormRef = fm}>
-                                <TextField
-                                    type='text'
-                                    name = 'name'
-                                    floatingLabelText='Enter item name'
-                                    autoFocus
-                                />
-                                <button type='submit' className="btn btn-success">
-                                    Edit
-                                </button>
-                            </form>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="submit" className="btn btn-danger" data-dismiss="modal">
-                                Close
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                <button className="btn btn-primary" onClick={this.handleOpen}>Edit</button>
+                <Dialog  title="Edit Name" actions={actions} modal={true}
+                    open={this.state.open}>
+                    <form style={formStyle} onSubmit={this.handleSubmit} ref={(fm) => this.myFormRef = fm}> 
+                        <TextField
+                            type='text'
+                            name = 'name'
+                            floatingLabelText='Enter item name'
+                            autoFocus={true}
+                        />
+                        <button type='submit' className="btn btn-success">Edit</button>
+                    </form>
+                </Dialog>
             </div>
-        )
+            );
     }
 }
 export default EditBtnMdl;
