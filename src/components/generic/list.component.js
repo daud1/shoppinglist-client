@@ -23,7 +23,7 @@ class Lister extends Component{
         return (
             <div>
                 <Card style={cardStyle} zDepth={2}>
-                    <Table>
+                    <Table selectable={false}>
                         <TableBody>
                         {
                             (this.props.list) 
@@ -57,7 +57,7 @@ class Lister extends Component{
                                     return (
                                         <TableRow key={index}>
                                             <TableRowColumn>
-                                                <Link to={`/items/${listValue.list_id}`}>{listValue.name} </Link>
+                                                <Link to={`/items/${listValue.list_id}`}>{listValue.name}</Link>
                                             </TableRowColumn>
                                             <TableRowColumn>
                                                 <DelButton 
@@ -74,15 +74,14 @@ class Lister extends Component{
                                             </TableRowColumn>
                                         </TableRow>
                                     )
-                                }
+                                }                                
                             })
-                            :(
+                            :
                                 <TableRow>
                                     <TableRowColumn>
-                                        <p> Nothing here yet. Add something! </p>
+                                        <h3> Nothing here yet. Add something! </h3>
                                     </TableRowColumn>
                                 </TableRow>
-                            )
                         }
                         </TableBody>
                     </Table>

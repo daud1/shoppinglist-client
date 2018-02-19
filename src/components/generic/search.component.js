@@ -32,9 +32,8 @@ class Search extends Component {
                     if(status === 404){
                         this.props.callback();
                         notify.show('No lists by that name!', 'error');
-                    } else {
+                    } else
                         notify.show(data.ERR, 'error');
-                    }
                 }
                 notify.show('Oops! Connection Error!', 'error');
             });
