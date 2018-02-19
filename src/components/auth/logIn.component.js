@@ -38,7 +38,7 @@ class LogIn extends Component {
                     notify.show(data.ERR, 'error');
                 }
             }
-            notify.show('Oops!', 'error');
+            notify.show('Oops! Connection Error.', 'error');
         });
     }
 

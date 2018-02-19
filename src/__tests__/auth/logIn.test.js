@@ -3,6 +3,7 @@ import { shallow, render, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import LogIn from '../../components/auth/logIn.component';
 import moxios from 'moxios';
+import App from '../../../src/App';
 
 
 describe ('LogIn Component', () => {
@@ -10,9 +11,7 @@ describe ('LogIn Component', () => {
         const wrapper = shallow(<LogIn />);
         expect(wrapper.exists(<div></div>)).toBe(true)
     });
-
     
-
     it('matches snapshot', () => {
         const wrapper = shallow(<LogIn />);
         expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -20,6 +19,7 @@ describe ('LogIn Component', () => {
 
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<LogIn />);
+        const appWrapper = shallow(<App />);
         
         wrapper.find('TextField[name="email"]')
             .simulate("change", { target: { value: 'user@mail.com' }  });
@@ -38,7 +38,7 @@ describe ('LogIn Component', () => {
         });
         
         moxios.wait(() => {
-            expect(wrapper.html()).toContain('Successfully Logged In');
+            expect(appWrapper.html()).toContain('Successfully Logged In');
             done();
         });
 

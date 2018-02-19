@@ -41,7 +41,7 @@ class ResetPassword extends Component {
                     notify.show(data.ERR, 'error');
                 }
             }
-            notify.show('Oops, looks like something went wrong!', 'error');
+            notify.show('Oops, Connection Error', 'error');
         });
     }
     

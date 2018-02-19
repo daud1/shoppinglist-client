@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListView Component matches snapshot 1`] = `
+<div>
+  <nav
+    class="navbar navbar-default"
+  >
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="navbar-header"
+      >
+        <Link
+          className="navbar-brand"
+          replace={false}
+          to="/lists"
+        >
+          Shopping Lists
+        </Link>
+      </div>
+      <div
+        class="collapse navbar-collapse"
+        id="bs-example-navbar-collapse-1"
+      >
+        <ul
+          class="nav navbar-nav"
+        >
+          <Search
+            callback={[Function]}
+            setValue={[Function]}
+          />
+        </ul>
+        <ul
+          class="nav navbar-nav navbar-right"
+        >
+          <br />
+          <withRouter(LogOut) />
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <CreateList
+    callback={[Function]}
+  />
+  <h3>
+     See all your lists here: 
+  </h3>
+  <Lister
+    callback={[Function]}
+  />
+  <nav>
+    <ul
+      className="pagination"
+    />
+  </nav>
+</div>
+`;
