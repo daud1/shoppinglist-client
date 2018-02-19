@@ -40,7 +40,7 @@ class EditBtnMdl extends Component {
     render() {
         return (
             <div>
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#editModal" data-backdrop="static">
                      Edit
                 </button>
                 <div className="modal fade" id="editModal" tabIndex="-1" role="dialog">
@@ -55,6 +55,7 @@ class EditBtnMdl extends Component {
                                     type='text'
                                     name = 'name'
                                     floatingLabelText='Enter item name'
+                                    autoFocus
                                 />
                                 <button type='submit' className="btn btn-success">
                                     Edit

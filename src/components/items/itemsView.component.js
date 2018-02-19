@@ -67,18 +67,18 @@ class ItemsView extends Component{
         }
         return (
             <div>
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <Link className="navbar-brand" to={'/lists'}>Shopping Lists</Link>
+                <nav className="navbar navbar-default">
+                    <div className="container-fluid">
+                        <div className="navbar-header">
+                            <Link className="navbar-brand" to={'/lists'}>Items</Link>
                         </div>
 
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <Search setValue={this.setLists} callback={this.fetchItems} listId={this.state.listId} />
+                        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul className="nav navbar-nav">
+                            <Search setValue={this.setListItems} callback={this.fetchItems} listId={this.state.listId} />
                         </ul>
                             
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul className="nav navbar-nav navbar-right">
                             <br />
                             <LogOutwithRouter />
                         </ul>
