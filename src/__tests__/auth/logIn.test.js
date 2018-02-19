@@ -10,9 +10,7 @@ describe ('LogIn Component', () => {
         const wrapper = shallow(<LogIn />);
         expect(wrapper.exists(<div></div>)).toBe(true)
     });
-
     
-
     it('matches snapshot', () => {
         const wrapper = shallow(<LogIn />);
         expect(shallowToJson(wrapper)).toMatchSnapshot();

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogIn Component matches snapshot 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`LogOut Component matches snapshot 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
