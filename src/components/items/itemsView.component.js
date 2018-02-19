@@ -59,7 +59,6 @@ class ItemsView extends Component{
 
     render(){
 
-        let pageNumbers = []
         for(let i=1; i <= this.state.numberOfPages; i++){
             this.state.pageNumbers[i-1] = 
                     <li className="page-item" key={i}>

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import baseURL from '../generic/base'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { notify } from 'react-notify-toast';
 
-class LogOut extends Component {
+export class LogOut extends Component {
     
     handleClick = (event) => {
         event.preventDefault();
@@ -17,8 +18,13 @@ class LogOut extends Component {
             this.props.history.push('/login');
         })
         .catch(error => {
-            console.log(error);
-        })
+            if(error.response) {
+                const { status, data } = error.response;
+                if(status)
+                    notify.show(data.ERR, 'error');
+            }
+            notify.show('Oops! Connection Error!', 'error');
+        });
     }
     render() {
         return (
@@ -28,5 +34,6 @@ class LogOut extends Component {
         )
     }
 }
+
 const LogOutwithRouter = withRouter(LogOut);
 export default LogOutwithRouter;

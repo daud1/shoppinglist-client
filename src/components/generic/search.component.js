@@ -36,6 +36,7 @@ class Search extends Component {
                         notify.show(data.ERR, 'error');
                     }
                 }
+                notify.show('Oops! Connection Error!', 'error');
             });
         }
     }

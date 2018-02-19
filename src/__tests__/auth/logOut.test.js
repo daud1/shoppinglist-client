@@ -6,6 +6,11 @@ import moxios from 'moxios';
 
 
 describe ('LogOut Component', () => {
+
+    beforeEach = () => {
+        localStorage.setItem('token', "sasa");
+    }
+
     it('should render without crashing', () => {
         const wrapper = shallow(<LogOutwithRouter />);
         expect(wrapper.exists(<button></button>)).toBe(true)
@@ -18,9 +23,7 @@ describe ('LogOut Component', () => {
 
     it('handles successful axios calls properly', (done) => {
         const wrapper = shallow(<LogOut />);
-        // wrapp = wrapper.find('button');
-        console.log(wrapper.debug());
-        // wrapper.find("button").simulate('click', { preventDefault () {} });
+        wrapper.find("button").simulate('click', { preventDefault () {} });
 
         moxios.stubRequest('http://localhost:5000/auth/logout', {
             status: 200,
