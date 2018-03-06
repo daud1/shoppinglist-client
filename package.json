@@ -33,7 +33,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --collectCoverageFrom=src/**/*js --collectCoverageFrom=!src/index.js",
+    "test": "react-scripts test -u --env=jsdom --collectCoverageFrom=src/**/*js --collectCoverageFrom=!src/index.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {},
