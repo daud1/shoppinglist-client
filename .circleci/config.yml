@@ -45,3 +45,10 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+      - run: bash .circleci/setup-heroku.sh
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+            fi
