@@ -1,2 +1,2 @@
-const baseURL = 'http://localhost:5000/';
-export default baseURL;
+const baseURL = 'https://flask-list-api.herokuapp.com/';
+export default baseURL; 
