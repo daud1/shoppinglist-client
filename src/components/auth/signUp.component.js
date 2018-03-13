@@ -16,8 +16,8 @@ const paperStyle = {
 }
 
 const divStyle = {
-    paddingLeft: '25%',
-    paddingRight: '25%'    
+    paddingLeft: '35%',
+    paddingRight: '35%'    
 }
 
 class SignUp extends Component {

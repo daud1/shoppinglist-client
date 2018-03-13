@@ -15,8 +15,8 @@ const paperStyle = {
     textAlign: 'center'
 }
 const divStyle = {
-    paddingLeft: '25%',
-    paddingRight: '25%'    
+    paddingLeft: '35%',
+    paddingRight: '35%'    
 }
 
 class ForgotPassword extends Component {
